@@ -1,0 +1,27 @@
+{
+  "name": "mernexercise-back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://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@github.com/JefersonMiranda7/MERNexercise-Back.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JefersonMiranda7/MERNexercise-Back/issues"
+  },
+  "homepage": "https://github.com/JefersonMiranda7/MERNexercise-Back#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.28.0"
+  }
+}
