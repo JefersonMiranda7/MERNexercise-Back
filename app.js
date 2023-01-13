@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import productRoutes from './routes/Productroutes.js';
 import orderRoutes from './routes/OrderRoutes.js';
+import orderItemRoutes from './routes/OrderItemRoutes.js';
 import db from './database/db.js';
 
 const app = express();
@@ -9,6 +10,7 @@ app.use(cors());
 app.use(express.json());
 app.use('/products', productRoutes);
 app.use('/orders', orderRoutes);
+app.use('/orderItems', orderItemRoutes);
 
 try {
   await db.authenticate();
