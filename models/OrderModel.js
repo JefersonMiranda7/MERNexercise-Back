@@ -1,5 +1,6 @@
 import db from '../database/db.js';
-import { DataTypes } from 'sequelize';
+import OrderItemModel from './OrderItemModel.js';
+import { DataTypes, HasMany } from 'sequelize';
 
 const OrderModel = db.define('Orders', {
   idOrder: {
@@ -67,7 +68,8 @@ const OrderModel = db.define('Orders', {
     type: DataTypes.DATE,
     allowNull: true,
     defaultValue: null,
-  }
-});
+  }},
+  // HasMany(db.OrderItemModel, { as: 'orderItems' })
+);
 
 export default OrderModel;
