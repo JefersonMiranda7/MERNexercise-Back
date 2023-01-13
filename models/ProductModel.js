@@ -25,11 +25,13 @@ const ProductModel = db.define('Products', {
   },
   createdAt: {
     type: DataTypes.DATE,
-    allowNull: false,
+    allowNull: true,
+    defaultValue: null,
   },
   updatedAt: {
     type: DataTypes.DATE,
-    allowNull: false,
+    allowNull: true,
+    defaultValue: null,
   }
 });
 
