@@ -24,5 +24,5 @@ app.get('/', (req, res) => {
 })
 
 app.listen(5000, () => {
-  console.log('Server App reunning in http://localhost:5000/')
+  console.log('Server App running in http://localhost:5000/')
 })

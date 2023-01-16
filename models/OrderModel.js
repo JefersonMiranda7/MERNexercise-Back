@@ -69,7 +69,39 @@ const OrderModel = db.define('Orders', {
     allowNull: true,
     defaultValue: null,
   }},
-  // HasMany(db.OrderItemModel, { as: 'orderItems' })
 );
+
+const OrderModelItem = db.define('OrderItems', {
+  idOrderItem: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+  },
+  quantity: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  createdAt: {
+    type: DataTypes.DATE,
+    allowNull: true,
+    defaultValue: null,
+  },
+  updatedAt: {
+    type: DataTypes.DATE,
+    allowNull: true,
+    defaultValue: null,
+  }}
+);
+
+OrderModel.hasMany(OrderModelItem, { foreignKey: 'idOrder', as: 'items' },
+{
+  onDelete: 'CASCADE',
+  onUpdate: 'CASCADE',
+});
+OrderModelItem.belongsTo(OrderModel, { foreignKey: 'idOrder' },
+{
+  onDelete: 'CASCADE',
+  onUpdate: 'CASCADE',
+});
 
 export default OrderModel;

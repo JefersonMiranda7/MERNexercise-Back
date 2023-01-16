@@ -1,9 +1,29 @@
 import OrderItemModel from '../models/OrderItemModel.js';
+import Product from '../models/ProductModel.js'
 
 //show all order items
 export const getAllOrderItems = async (req, res) => {
   try {
-    const orderItems = await OrderItemModel.findAll();
+    const orderItems = await OrderItemModel.findAll({
+      include: [{
+        model: Product,
+        as: 'product'
+      }]});
+    res.json(orderItems);
+  } catch (e) {
+    res.json({ message: e.message })
+  }
+}
+
+//show all order items of one orden
+export const getAllOrderItemsByOrden = async (req, res) => {
+  try {
+    const orderItems = await OrderItemModel.findAll({
+      include: [{
+        model: Product,
+        as: 'product'
+      }], where: { idOrder: req.params.id}
+      });
     res.json(orderItems);
   } catch (e) {
     res.json({ message: e.message })

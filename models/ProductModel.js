@@ -35,4 +35,37 @@ const ProductModel = db.define('Products', {
   }
 });
 
+const OrderItemModel = db.define('OrderItems', {
+  idOrderItem: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+  },
+  quantity: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  createdAt: {
+    type: DataTypes.DATE,
+    allowNull: true,
+    defaultValue: null,
+  },
+  updatedAt: {
+    type: DataTypes.DATE,
+    allowNull: true,
+    defaultValue: null,
+  }}
+);
+
+ProductModel.hasMany(OrderItemModel, { foreignKey: 'idProduct'},
+{
+  onDelete: 'CASCADE',
+  onUpdate: 'CASCADE',
+});
+OrderItemModel.belongsTo(ProductModel, { foreignKey: 'idProduct'},
+{
+  onDelete: 'CASCADE',
+  onUpdate: 'CASCADE',
+});
+
 export default ProductModel;
